@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,7 @@ import android.widget.Toast;
 import com.jary.adaptation_android.permissions.AfterPermissionGranted;
 import com.jary.adaptation_android.permissions.AppSettingsDialog;
 import com.jary.adaptation_android.permissions.EasyPermissions;
+import com.orhanobut.logger.Logger;
 
 import java.util.List;
 
@@ -64,12 +64,12 @@ public class MainFragment extends Fragment implements EasyPermissions.Permission
 
     @Override
     public void onPermissionsGranted(int requestCode, List<String> perms) {
-        Log.d(TAG, "onPermissionsGranted:" + requestCode + ":" + perms.size());
+        Logger.d( "onPermissionsGranted:" + requestCode + ":" + perms.size());
     }
 
     @Override
     public void onPermissionsDenied(int requestCode, List<String> perms) {
-        Log.d(TAG, "onPermissionsDenied:" + requestCode + ":" + perms.size());
+        Logger.d( "onPermissionsDenied:" + requestCode + ":" + perms.size());
         // (Optional) Check whether the user denied any permissions and checked "NEVER ASK AGAIN."
         // This will display a dialog directing them to enable the permission in app settings.
         if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
@@ -86,7 +86,7 @@ public class MainFragment extends Fragment implements EasyPermissions.Permission
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d(TAG,"onPermissions---------" + requestCode + "   " + resultCode);
+        Logger.d("onPermissions---------" + requestCode + "   " + resultCode);
         if (requestCode == RC_SETTINGS) {
             // Do something after user returned from app settings screen, like showing a Toast.
             Toast.makeText(getActivity(), R.string.returned_from_app_settings_to_activity, Toast.LENGTH_SHORT)

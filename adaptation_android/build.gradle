@@ -29,4 +29,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.zhy:autolayout:1.4.5'
+    compile 'com.orhanobut:logger:1.15'
 }

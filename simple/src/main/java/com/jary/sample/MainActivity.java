@@ -4,17 +4,14 @@ import android.Manifest;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jary.adaptation_android.permissions.AfterPermissionGranted;
 import com.jary.adaptation_android.permissions.AppSettingsDialog;
 import com.jary.adaptation_android.permissions.EasyPermissions;
-import com.jary.adaptation_android.screen.ScreenManager;
-import com.jary.adaptation_android.widget.TextViewManager;
+import com.orhanobut.logger.LogLevel;
+import com.orhanobut.logger.Logger;
 import com.zhy.autolayout.AutoLayoutActivity;
 
 import java.util.List;
@@ -31,6 +28,13 @@ public class MainActivity extends AutoLayoutActivity implements EasyPermissions.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Logger
+                .init("AdaptionX-Android-jarylan")                 // default PRETTYLOGGER or use just init()
+                .methodCount(3)                 // default 2
+                .hideThreadInfo()               // default shown
+                .logLevel(LogLevel.FULL);        // default LogLevel.FULL
+
 
         findViewById(R.id.button_camera).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +75,7 @@ public class MainActivity extends AutoLayoutActivity implements EasyPermissions.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d(TAG,"onPermissions---------" + requestCode + "   " + resultCode);
+        Logger.d("onPermissions---------" + requestCode + "   " + resultCode);
         if (requestCode == RC_SETTINGS_SCREEN) {
             // Do something after user returned from app settings screen, like showing a Toast.
             Toast.makeText(this, R.string.returned_from_app_settings_to_activity, Toast.LENGTH_SHORT)
@@ -90,13 +94,13 @@ public class MainActivity extends AutoLayoutActivity implements EasyPermissions.
 
     @Override
     public void onPermissionsGranted(int requestCode, List<String> perms) {
-        Log.d(TAG, "onPermissionsGranted:" + requestCode + ":" + perms.size());
+        Logger.d("onPermissionsGranted:" + requestCode + ":" + perms.size());
 
     }
 
     @Override
     public void onPermissionsDenied(int requestCode, List<String> perms) {
-        Log.d(TAG, "onPermissionsDenied:" + requestCode + ":" + perms.size());
+        Logger.d("onPermissionsDenied:" + requestCode + ":" + perms.size());
         // (Optional) Check whether the user denied any permissions and checked "NEVER ASK AGAIN."
         // This will display a dialog directing them to enable the permission in app settings.
         if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
