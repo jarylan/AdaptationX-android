@@ -11,20 +11,6 @@
     android:orientation="vertical"
     >
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:paddingLeft="10dp"
-        android:text="一二三四五,上山打老虎;老虎不在家,打到小松鼠;松鼠有几只,一二三四五.哈哈哈哈哈"/>
-
-    <TextView
-        android:id="@+id/tv_row"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        />
     <Button
         android:id="@+id/button_camera"
         android:layout_width="wrap_content"

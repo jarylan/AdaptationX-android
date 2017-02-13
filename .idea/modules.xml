@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AdaptationX-android.iml" filepath="$PROJECT_DIR$/AdaptationX-android.iml" />
       <module fileurl="file://$PROJECT_DIR$/adaptation_android/adaptation_android.iml" filepath="$PROJECT_DIR$/adaptation_android/adaptation_android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/simple/simple.iml" filepath="$PROJECT_DIR$/simple/simple.iml" />
     </modules>
   </component>
 </project>

@@ -44,16 +44,6 @@ public class MainActivity extends AutoLayoutActivity implements EasyPermissions.
                 locationAndContactsTask();
             }
         });
-
-        LinearLayout root_layout = (LinearLayout) findViewById(R.id.activity_main);
-        TextView textView = (TextView) findViewById(R.id.textView);
-        TextView tv_row = (TextView) findViewById(R.id.tv_row);
-        int screenW = ScreenManager.getScreenWidth(this);
-        int pl = root_layout.getPaddingLeft();
-        int pr = root_layout.getPaddingRight();
-        int parentWid = screenW-pl-pr;
-        Log.d(TAG,"-------------screen w = " + screenW+"    parentWid=" + parentWid +"  row = " + TextViewManager.getRow(textView,parentWid));
-        tv_row.setText("上面 TextView 的行数 ： " + TextViewManager.getRow(textView,parentWid));
     }
     @AfterPermissionGranted(RC_LOCATION_CONTACTS_PERM)
     private void locationAndContactsTask() {
